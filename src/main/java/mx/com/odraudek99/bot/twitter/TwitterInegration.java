@@ -16,6 +16,7 @@ import mx.com.odraudek99.bot.mongo.Persona;
 import twitter4j.Query;
 import twitter4j.QueryResult;
 import twitter4j.Status;
+import twitter4j.StatusUpdate;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
@@ -145,9 +146,9 @@ public class TwitterInegration {
 
 						logger.info("Enviando un twitt a: " + status.getUser().getScreenName());
 
-						// StatusUpdate stat= new StatusUpdate("");
-						// stat.setInReplyToStatusId(status.getId());
-						// twitter.updateStatus(stat);
+						 StatusUpdate stat= new StatusUpdate("");
+						 stat.setInReplyToStatusId(status.getId());
+						 twitter.updateStatus(stat);
 
 						persona.setFechaResponse(new Date());
 						persona.getTwitts().add(status.getText());
